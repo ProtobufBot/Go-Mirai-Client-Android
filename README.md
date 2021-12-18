@@ -1,5 +1,5 @@
 # Go-Mirai-Client-Android
-Go-Mirai-Client的安卓版
+[Go-Mirai-Client](https://github.com/ProtobufBot/Go-Mirai-Client) 的安卓版
 
 ## 环境
 - JDK 1.8
@@ -13,7 +13,7 @@ Go-Mirai-Client的安卓版
 3. 下载本项目（安卓套壳）
 
 ## 编译
-1. 在 `Go-Mirai-Client` 目录下执行 `gomobile bind -target=android ./pkg/gmc`，得到 gmc.aar 和 gmc-sources.jar
-2. 复制 gmc.aar 和 gmc-sources.jar 到本项目 app/libs 目录下
+1. 在 `Go-Mirai-Client` 目录下执行 `gomobile bind -target=android ./pkg/gmc`，得到 `gmc.aar` 和 `gmc-sources.jar`
+2. 复制 `gmc.aar` 和 `gmc-sources.jar` 到本项目 `app/libs` 目录下
 3. 编译安卓
 
