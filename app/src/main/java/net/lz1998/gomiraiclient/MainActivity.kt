@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val t = this;
         thread {
             Thread.sleep(3000L)// 等3秒让gmc启动
-            t.runOnUiThread {
+            t.runOnUiThread {// UI线程更新界面
                 binding.webview.settings.javaScriptEnabled = true
                 binding.webview.settings.loadWithOverviewMode = true
                 binding.webview.webViewClient = object : WebViewClient() {

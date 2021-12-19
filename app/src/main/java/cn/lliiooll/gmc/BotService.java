@@ -13,16 +13,18 @@ import gmc.Gmc;
 import net.lz1998.gomiraiclient.MainActivity;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * 用来运行gmc的服务
+ */
 public class BotService extends Service {
     private static boolean active = false;
 
     @Override
     public void onCreate() {
-
-        new Thread(Gmc::start).start();
-        Toast.makeText(this, "GMC启动中...", Toast.LENGTH_SHORT).show();
+        new Thread(Gmc::start).start();// 新建线程启动gmc
+        Toast.makeText(this, "GMC启动中...", Toast.LENGTH_LONG).show();// 发个通知别让用户以为程序卡了
         active = true;
-        startForeground(1, NotificationUtil.create(this));
+        startForeground(1, NotificationUtil.create(this));// 启动前台服务
         super.onCreate();
     }
 
@@ -40,7 +42,7 @@ public class BotService extends Service {
     @Override
     public void onDestroy() {
         active = false;
-        stopForeground(true);
+        stopForeground(true);// 停止前台服务
         super.onDestroy();
     }
 
