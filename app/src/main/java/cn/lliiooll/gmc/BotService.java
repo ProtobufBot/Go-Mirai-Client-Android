@@ -14,12 +14,14 @@ import gmc_android.Gmc_android;
 import net.lz1998.gomiraiclient.MainActivity;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
+
 public class BotService extends Service {
     private static boolean active = false;
 
     @Override
     public void onCreate() {
-
+        Gmc_android.setPluginPath(new File(getFilesDir(),"plugins").getAbsolutePath());
         new Thread(Gmc_android::start).start();
         Toast.makeText(this, "Start Service", Toast.LENGTH_SHORT).show();
         active = true;
