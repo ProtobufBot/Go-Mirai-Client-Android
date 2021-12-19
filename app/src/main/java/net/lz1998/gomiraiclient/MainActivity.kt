@@ -24,13 +24,12 @@ class MainActivity : AppCompatActivity() {
         }
         // 启动服务
         if (!BotService.isActive()) {
-            Toast.makeText(this, "Start", Toast.LENGTH_SHORT).show();
             BotService.start(this)
         }
         val t = this;
         thread {
-            Thread.sleep(3000L)
-            t.runOnUiThread {
+            Thread.sleep(3000L)// 等3秒让gmc启动
+            t.runOnUiThread {// UI线程更新界面
                 binding.webview.settings.javaScriptEnabled = true
                 binding.webview.settings.loadWithOverviewMode = true
                 binding.webview.webViewClient = object : WebViewClient() {
@@ -53,14 +52,12 @@ class MainActivity : AppCompatActivity() {
             ) {
                 // Permission is granted. Continue the action or workflow
                 // in your app.
-                Toast.makeText(this, "权限通过", Toast.LENGTH_LONG).show()
             } else {
                 // Explain to the user that the feature is unavailable because
                 // the features requires a permission that the user has denied.
                 // At the same time, respect the user's decision. Don't link to
                 // system settings in an effort to convince the user to change
                 // their decision.
-                Toast.makeText(this, "权限不通过", Toast.LENGTH_LONG).show()
             }
 
 

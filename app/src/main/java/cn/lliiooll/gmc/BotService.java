@@ -14,6 +14,9 @@ import gmc_android.Gmc_android;
 import net.lz1998.gomiraiclient.MainActivity;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * 用来运行gmc的服务
+ */
 import java.io.File;
 
 public class BotService extends Service {
@@ -21,14 +24,15 @@ public class BotService extends Service {
 
     @Override
     public void onCreate() {
+        Toast.makeText(this, "GMC启动中...", Toast.LENGTH_LONG).show();// 发个通知别让用户以为程序卡了
         Gmc_android.setPluginPath(new File(getFilesDir(),"plugins").getAbsolutePath());
         Gmc_android.setLogger(s -> {
             // TODO print log on screen
         });
-        new Thread(Gmc_android::start).start();
+        new Thread(Gmc_android::start).start();// 新建线程启动gmc
         Toast.makeText(this, "Start Service", Toast.LENGTH_SHORT).show();
         active = true;
-        startForeground(1, NotificationUtil.create(this));
+        startForeground(1, NotificationUtil.create(this));// 启动前台服务
         super.onCreate();
     }
 
@@ -46,7 +50,7 @@ public class BotService extends Service {
     @Override
     public void onDestroy() {
         active = false;
-        stopForeground(true);
+        stopForeground(true);// 停止前台服务
         super.onDestroy();
     }
 
