@@ -9,20 +9,28 @@ import android.os.IBinder;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import cn.lliiooll.gmc.util.NotificationUtil;
-import gmc.Gmc;
+import gmc_android.Gmc_android;
+
 import net.lz1998.gomiraiclient.MainActivity;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * 用来运行gmc的服务
  */
+import java.io.File;
+
 public class BotService extends Service {
     private static boolean active = false;
 
     @Override
     public void onCreate() {
-        new Thread(Gmc::start).start();// 新建线程启动gmc
         Toast.makeText(this, "GMC启动中...", Toast.LENGTH_LONG).show();// 发个通知别让用户以为程序卡了
+        Gmc_android.setPluginPath(new File(getFilesDir(),"plugins").getAbsolutePath());
+        Gmc_android.setLogger(s -> {
+            // TODO print log on screen
+        });
+        new Thread(Gmc_android::start).start();// 新建线程启动gmc
+        Toast.makeText(this, "Start Service", Toast.LENGTH_SHORT).show();
         active = true;
         startForeground(1, NotificationUtil.create(this));// 启动前台服务
         super.onCreate();
