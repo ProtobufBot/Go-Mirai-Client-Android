@@ -16,9 +16,9 @@ public class PermissionUtil {
      * 所有程序用到的权限
      */
     private static final String[] permissions = new String[]{
-            Manifest.permission.MANAGE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//            Manifest.permission.MANAGE_EXTERNAL_STORAGE,
+//            Manifest.permission.READ_EXTERNAL_STORAGE,
+//            Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.FOREGROUND_SERVICE,
             Manifest.permission.INTERNET,
     };

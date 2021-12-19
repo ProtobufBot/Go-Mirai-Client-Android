@@ -32,14 +32,13 @@ class MainActivity : AppCompatActivity() {
             t.runOnUiThread {// UI线程更新界面
                 binding.webview.settings.javaScriptEnabled = true
                 binding.webview.settings.loadWithOverviewMode = true
-                binding.webview.webViewClient = object : WebViewClient() {
-                    override fun onPageFinished(view: WebView, url: String) {
-
-                        // Inject CSS when page is done loading
-                        view.loadUrl("javascript:document.querySelector(\"#root > div > section > header\").hidden=true")
-                        super.onPageFinished(view, url)
-                    }
-                }
+                // 下面的代码会影响 GitHub 跳转
+//                binding.webview.webViewClient = object : WebViewClient() {
+//                    override fun onPageFinished(view: WebView, url: String) {
+//                        view.loadUrl("javascript:document.querySelector(\"#root > div > section > header\").hidden=true")
+//                        super.onPageFinished(view, url)
+//                    }
+//                }
                 binding.webview.loadUrl("http://localhost:9000/")
             }
         }

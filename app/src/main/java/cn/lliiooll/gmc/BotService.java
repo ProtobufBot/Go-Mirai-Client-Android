@@ -26,6 +26,8 @@ public class BotService extends Service {
     public void onCreate() {
         Toast.makeText(this, "GMC启动中...", Toast.LENGTH_LONG).show();// 发个通知别让用户以为程序卡了
         Gmc_android.setPluginPath(new File(getFilesDir(),"plugins").getAbsolutePath());
+        Gmc_android.setLogPath(new File(getFilesDir(),"logs").getAbsolutePath());
+        Gmc_android.setDevicePath(new File(getFilesDir(),"device").getAbsolutePath());
         Gmc_android.setLogger(s -> {
             // TODO print log on screen
         });
