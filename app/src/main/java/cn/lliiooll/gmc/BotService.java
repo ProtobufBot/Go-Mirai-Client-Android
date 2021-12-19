@@ -22,6 +22,9 @@ public class BotService extends Service {
     @Override
     public void onCreate() {
         Gmc_android.setPluginPath(new File(getFilesDir(),"plugins").getAbsolutePath());
+        Gmc_android.setLogger(s -> {
+            // TODO print log on screen
+        });
         new Thread(Gmc_android::start).start();
         Toast.makeText(this, "Start Service", Toast.LENGTH_SHORT).show();
         active = true;
