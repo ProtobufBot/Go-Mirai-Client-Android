@@ -20,7 +20,7 @@ public class BotService extends Service {
     public void onCreate() {
 
         new Thread(Gmc::start).start();
-        Toast.makeText(this, "Start Service", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "GMC启动中...", Toast.LENGTH_SHORT).show();
         active = true;
         startForeground(1, NotificationUtil.create(this));
         super.onCreate();
