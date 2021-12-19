@@ -13,7 +13,7 @@
 3. 下载本项目（安卓套壳）
 
 ## 编译
-1. 在 `Go-Mirai-Client` 目录下执行 `gomobile bind -target=android ./pkg/gmc`，得到 `gmc.aar` 和 `gmc-sources.jar`
-2. 复制 `gmc.aar` 和 `gmc-sources.jar` 到本项目 `app/libs` 目录下
+1. 在 `Go-Mirai-Client` 目录下执行 `gomobile bind -target=android ./service/gmc_android`，得到 `gmc_android.aar` 和 `gmc_android-sources.jar`
+2. 复制 `gmc_android.aar` 和 `gmc_android-sources.jar` 到本项目 `app/libs` 目录下
 3. 编译安卓
 

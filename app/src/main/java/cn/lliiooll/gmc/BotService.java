@@ -9,7 +9,8 @@ import android.os.IBinder;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import cn.lliiooll.gmc.util.NotificationUtil;
-import gmc.Gmc;
+import gmc_android.Gmc_android;
+
 import net.lz1998.gomiraiclient.MainActivity;
 import org.jetbrains.annotations.NotNull;
 
@@ -19,7 +20,7 @@ public class BotService extends Service {
     @Override
     public void onCreate() {
 
-        new Thread(Gmc::start).start();
+        new Thread(Gmc_android::start).start();
         Toast.makeText(this, "Start Service", Toast.LENGTH_SHORT).show();
         active = true;
         startForeground(1, NotificationUtil.create(this));
