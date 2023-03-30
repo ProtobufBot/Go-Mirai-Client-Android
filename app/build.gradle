@@ -1,21 +1,20 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    compileSdk 30
+    namespace 'cn.lliiooll.gmca'
+    compileSdk 33
+
     defaultConfig {
-        applicationId "net.lz1998.gomiraiclient"
-        minSdk 24
-        targetSdk 30
-        versionCode 1
+        applicationId "cn.lliiooll.gmca"
+        minSdk 26
+        targetSdk 33
+        versionCode 3
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        ndk {
-            abiFilters 'armeabi-v7a'
-        }
     }
 
     buildTypes {
@@ -38,17 +37,14 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
-    implementation 'com.google.protobuf:protobuf-java:3.19.1'
-    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
-    implementation 'com.squareup.okio:okio:3.0.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation fileTree("libs")
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
